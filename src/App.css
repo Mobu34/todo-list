@@ -1,1 +1,69 @@
-/* Other rules */
+/* FONTS */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap");
+
+/* GLOBAL */
+body {
+  font-family: "Roboto", sans-serif;
+}
+.container {
+  width: 1024px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+header {
+  height: 80px;
+  border-bottom: 1px solid #e5e5e5;
+}
+.wrapper {
+  width: 1024px;
+  margin: auto;
+  display: flex;
+  height: 100%;
+  align-items: center;
+  font-size: 35px;
+}
+.tasks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
+
+.trash {
+  margin-left: 30px;
+}
+.new-entry {
+  margin-top: 30px;
+}
+input,
+button {
+  margin: 0 30px;
+}
+input {
+  width: 300px;
+  height: 40px;
+  font-weight: 300;
+  color: #a8a8a8;
+  font-size: 14px;
+  border: solid 1px #5c48d3;
+  border-radius: 5px;
+  background-color: #f2f7fd;
+  padding: 0 10px;
+  box-sizing: border-box;
+}
+button {
+  font-size: 14px;
+  font-weight: 300;
+  background-color: #5c48d3;
+  color: #fff;
+  width: 100px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.closed {
+  text-decoration: line-through;
+}

@@ -1,12 +1,55 @@
-import React from "react";
+import React, { useState } from "react";
 import "./App.css";
+import Task from "./components/Task";
+import Input from "./components/Input";
+import Button from "./components/Button";
 
-function App() {
+// import de font-awesome
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faTrash, faListAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+library.add(faTrash, faListAlt);
+
+const App = () => {
+  const [tasks, setTasks] = useState([]); // state pour gérer les tâches
+  const [newTask, setNewTask] = useState(""); // state pour gérer l'input
+
+  // console.log(tasks);
   return (
-    <div>
-      Hello from <a href="https://www.lereacteur.io">Le Reacteur !</a>
-    </div>
+    <>
+      <header>
+        <div className="wrapper">
+          {/* <FontAwesomeIcon icon="fa-list-alt" /> */}
+          Todo List
+        </div>
+      </header>
+      <div className="container">
+        <div className="tasks">
+          {/* boucle sur le tableau tasks pour faire apparaitre les tâches s'il y en a */}
+          {tasks.map((task, index) => {
+            return (
+              <Task
+                key={task.id}
+                task={task}
+                index={index}
+                tasks={tasks}
+                setTasks={setTasks}
+              />
+            );
+          })}
+        </div>
+        <div className="new-entry">
+          <Input newTask={newTask} setNewTask={setNewTask} />
+          <Button
+            tasks={tasks}
+            setTasks={setTasks}
+            newTask={newTask}
+            setNewTask={setNewTask}
+          />
+        </div>
+      </div>
+    </>
   );
-}
+};
 
 export default App;
