@@ -40,7 +40,6 @@ const Task = ({ task, index, tasks, setTasks }) => {
         type="checkbox"
         checked={task.isDone ? true : false} // j'ai mis un checkbox car si j'ai disons 5 tâches et que je check la 1ère, celle-ci vient en dernière, si je la supprime à ce moment là, mon check se fait sur une autre tâche, du coup cela permet d'éviter ça mais mon state n'est pas content
         name={task.name}
-        className="task"
         onClick={handleClick}
       />
       <label htmlFor={task.name} className="task">

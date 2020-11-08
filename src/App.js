@@ -26,7 +26,7 @@ const App = () => {
     <>
       <header>
         <div className="wrapper">
-          {/* <FontAwesomeIcon icon="fa-list-alt" /> */}
+          <FontAwesomeIcon icon="list-alt" className="icon-todo-list" />
           Todo List
         </div>
       </header>
@@ -55,6 +55,7 @@ const App = () => {
           />
         </div>
       </div>
+      <footer>Made with React at Le Reacteur by Lucas</footer>
     </>
   );
 };
