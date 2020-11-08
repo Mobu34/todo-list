@@ -1,11 +1,18 @@
 import React from "react";
+import axios from "axios";
 
 const Button = ({ tasks, setTasks, newTask, setNewTask }) => {
-  const handleClick = () => {
+  const handleClick = async () => {
     // si le state de l'input contient quelque chose
     if (newTask) {
       const newTasks = [...tasks]; // copie du tableau state des tâches dans une nouvelle variable
-      newTasks.push({ task: newTask, isDone: false, id: tasks.length }); // ajout de la nouvelle tâche
+      const pushTask = { name: newTask, position: tasks.length };
+      const response = await axios.post(
+        "http://localhost:3000/task/add",
+        pushTask
+      );
+      newTasks.push(response.data); // ajout de la nouvelle tâche
+
       setTasks(newTasks); // mise à jour du state des tâches avec cette nouvelle tâche
 
       setNewTask(""); // state de l'input remit à 0 pour supprimer les caractères apparants dans l'input

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import Task from "./components/Task";
 import Input from "./components/Input";
 import Button from "./components/Button";
+import axios from "axios";
 
 // import de font-awesome
 import { library } from "@fortawesome/fontawesome-svg-core";
@@ -14,7 +15,13 @@ const App = () => {
   const [tasks, setTasks] = useState([]); // state pour gérer les tâches
   const [newTask, setNewTask] = useState(""); // state pour gérer l'input
 
-  // console.log(tasks);
+  useEffect(() => {
+    axios.get("http://localhost:3000/tasks").then((res) => {
+      setTasks(res.data);
+    });
+  }, []);
+
+  console.log(tasks);
   return (
     <>
       <header>
@@ -29,7 +36,7 @@ const App = () => {
           {tasks.map((task, index) => {
             return (
               <Task
-                key={task.id}
+                key={task._id}
                 task={task}
                 index={index}
                 tasks={tasks}
